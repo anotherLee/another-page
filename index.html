@@ -29,17 +29,20 @@
 </head>
 <body>
 <button id="button">回顶部</button>
-<section id="banner">
 
-    <div id="topbar">
-        <a href="#">Trandx</a>
-        <div>
-            <a href="#">Home</a>
-            <a href="#introduce">about</a>
-            <a href="#bottomPart">Porfolio</a>
-            <a href="#features">Contact</a>
-        </div>
+<div id="topbar">
+    <a href="#">Trandx</a>
+    <div>
+        <a href="#">Home</a>
+        <a href="#introduce">about</a>
+        <a href="#bottomPart">Porfolio</a>
+        <a href="#features">Contact</a>
     </div>
+</div>
+
+<section id="banner">
+    <div id="fake"></div>
+
 
     <div class="wrapper">
         <div id="bannerLeft">
@@ -194,6 +197,7 @@
             }
         });
 
+
         $(document).on('click','a',function(e){
             e.preventDefault()
             //$()获得的好像是每一个，这里用this更合适
@@ -206,6 +210,18 @@
                 scrollTop:0
             },500)
         })
+
+
+        $(window).on('scroll',function(){
+            let top = $('body').scrollTop();
+            if(top >= 56){
+                $('#topbar').addClass('topbar')
+            }else{
+                $('#topbar').removeClass('topbar')
+            }
+        })
+
+
     </script>
 </body>
 </html>
