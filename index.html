@@ -28,15 +28,16 @@
     </style>
 </head>
 <body>
+<button id="button">回顶部</button>
 <section id="banner">
 
     <div id="topbar">
         <a href="#">Trandx</a>
         <div>
             <a href="#">Home</a>
-            <a href="#">about</a>
-            <a href="#">Porfolio</a>
-            <a href="#">Contact</a>
+            <a href="#introduce">about</a>
+            <a href="#bottomPart">Porfolio</a>
+            <a href="#features">Contact</a>
         </div>
     </div>
 
@@ -192,6 +193,19 @@
                 slideShadows : false
             }
         });
+
+        $(document).on('click','a',function(e){
+            e.preventDefault()
+            //$()获得的好像是每一个，这里用this更合适
+            $('body').animate({
+                scrollTop: $($(this).attr('href')).offset().top
+            },500)
+        })
+        $('#button').on('click',function(){
+            $('body').animate({
+                scrollTop:0
+            },500)
+        })
     </script>
 </body>
 </html>
